@@ -36,7 +36,7 @@ TEST(PeerBuilderTest, StatelessValidAddressCreation) {
       builder;
 
   auto valid_address = "127.0.0.1:1337";
-  shared_model::interface::types::PubkeyType key(std::string(32, '0'));
+  shared_model::interface::types::PubkeyType key(std::string(64, '0'));
   auto peer = builder.address(valid_address).pubkey(key).build();
   peer.match(
       [&](shared_model::builder::BuilderResult<
@@ -60,7 +60,7 @@ TEST(PeerBuilderTest, SeveralObjectsFromOneBuilder) {
       builder;
 
   auto valid_address = "127.0.0.1:1337";
-  shared_model::interface::types::PubkeyType key(std::string(32, '0'));
+  shared_model::interface::types::PubkeyType key(std::string(64, '0'));
 
   auto state = builder.address(valid_address).pubkey(key);
   auto peer1 = state.build();

@@ -141,7 +141,7 @@ namespace shared_model {
           auto command = proto_command->mutable_add_peer();
           auto peer = command->mutable_peer();
           peer->set_address(address);
-          peer->set_peer_key(crypto::toBinaryString(peer_key));
+          peer->set_peer_key(peer_key.hex());
         });
       }
 

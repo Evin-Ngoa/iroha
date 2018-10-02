@@ -16,7 +16,6 @@ namespace shared_model {
   namespace interface {
     class Signature;
     class Block;
-    class Proposal;
   }  // namespace interface
 }  // namespace shared_model
 
@@ -68,9 +67,7 @@ namespace iroha {
          * @return hashed value of block
          */
         virtual YacHash makeHash(
-            const shared_model::interface::Block &block,
-            const shared_model::interface::Proposal &proposal,
-            ordering::transport::Round round) const = 0;
+            const shared_model::interface::Block &block) const = 0;
 
         /**
          * Convert YacHash to model hash

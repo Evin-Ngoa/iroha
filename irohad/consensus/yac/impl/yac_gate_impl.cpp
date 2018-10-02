@@ -50,7 +50,7 @@ namespace iroha {
         current_block_ = std::move(block);
 
         current_hash_ =
-            hash_provider_->makeHash(*current_block_, *proposal, round);
+            hash_provider_->makeHash(*current_block_ /*, *proposal, round*/);
         log_->info("vote for (proposal: {}, block: {})",
                    current_hash_.proposal_hash,
                    current_hash_.block_hash);

@@ -5,19 +5,17 @@
 
 #include "consensus/yac/impl/yac_hash_provider_impl.hpp"
 #include "interfaces/iroha_internal/block.hpp"
-#include "interfaces/iroha_internal/proposal.hpp"
 
 namespace iroha {
   namespace consensus {
     namespace yac {
 
       YacHash YacHashProviderImpl::makeHash(
-          const shared_model::interface::Block &block,
-          const shared_model::interface::Proposal &proposal,
-          ordering::transport::Round round) const {
+          const shared_model::interface::Block &block) const {
         YacHash result;
-        result.proposal_hash = block.hash().hex();
-        result.block_hash = block.hash().hex();
+        auto hex_hash = block.hash().hex();
+        result.proposal_hash = hex_hash;
+        result.block_hash = hex_hash;
         result.block_signature = clone(block.signatures().front());
         return result;
       }

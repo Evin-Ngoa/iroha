@@ -13,9 +13,8 @@ namespace iroha {
     namespace yac {
       class YacHashProviderImpl : public YacHashProvider {
        public:
-        YacHash makeHash(const shared_model::interface::Block &block,
-                         const shared_model::interface::Proposal &proposal,
-                         ordering::transport::Round round) const override;
+        YacHash makeHash(
+            const shared_model::interface::Block &block) const override;
 
         shared_model::interface::types::HashType toModelHash(
             const YacHash &hash) const override;
